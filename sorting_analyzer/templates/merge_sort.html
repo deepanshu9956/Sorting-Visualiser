@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+    <script src="{% static 'js/merge_sort.js' %}"></script>
+        <script>
+            arr_string = "{{array}}"
+            array = JSON.parse(arr_string)
+
+            arr1_string = "{{array1}}"
+            array1 = JSON.parse(arr1_string)
+
+            rectangle(array, array1)
+        </script>
+{% endblock %}

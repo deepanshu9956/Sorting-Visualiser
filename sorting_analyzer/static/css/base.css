@@ -1,0 +1,19 @@
+body {
+    background: cyan;
+}
+
+.header {
+    display: flex;
+    height: 10vh;
+    padding-top: 10vh;
+    background: rgb(138, 74, 10);
+    border: 1px solid black;
+}
+
+.histogram {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    height: 80vh;
+    background: rgb(46, 2, 20);
+}

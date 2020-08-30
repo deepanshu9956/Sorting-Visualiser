@@ -1,0 +1,71 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/base.css' %}">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+
+    {% block content %}
+
+    {% endblock %}
+
+</head>
+
+<body>
+   <nav class="navbar navbar-default">
+       <div class="container-fluid">
+           <ul class="list-inline">
+                <li class="navbar-brand"> 
+                    <form action="http://localhost:8080/" method="post">
+                        {% csrf_token %}
+                        <input type="hidden"/>
+                        <button>Generate</button>
+                    </form>
+                </li>
+                <li class="navbar-brand">
+                    <form action="http://localhost:8080/merge_sort/" method="post">
+                        {% csrf_token %}
+                        <input type="hidden" name="array" value="{{array}}" />
+                        <button>merge_sort</button>
+                    </form>
+                </li>
+                <li class="navbar-brand">
+                    <form action="http://localhost:8080/quick_sort/" method="post">
+                        {% csrf_token %}
+                        <input type="hidden" name="array" value="{{array}}" />
+                        <button>quick_sort</button>
+                    </form>
+                </li>
+                <li class="navbar-brand">
+                    <form action="http://localhost:8080/selection_sort/" method="post">
+                        {% csrf_token %}
+                        <input type="hidden" name="array" value="{{array}}" />
+                        <button>selection_sort</button>
+                    </form>
+                </li>
+                <li class="navbar-brand">
+                    <form action="http://localhost:8080/bubble_sort/" method="post">
+                        {% csrf_token %}
+                        <input type="hidden" name="array" value="{{array}}" />
+                        <button>bubble_sort</button>
+                    </form>
+                </li>
+            </ul>
+       </div>
+   </nav>
+
+    <div class="histogram" id="histo">
+        {% for element in array %}
+            <svg height=90vh>
+                <rect id={{forloop.counter0|stringformat:"i"}} width="100" height={{element}}vh style="fill:rgb(0,0,255);stroke-width:3;stroke:rgb(0,0,0)" />
+            </svg>
+        {% endfor %}
+    </div>
+</body>
+</html>
